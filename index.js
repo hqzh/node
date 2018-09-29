@@ -1,14 +1,29 @@
 const express = require('express');
-
 const app = express();
+const articles = [{ title: 'Example' }];
 
-const port = process.env.PORT || 3000;
+app.get('/articles', (req, res) => {
+  res.send(articles);
+});
 
-app.get('/',(req,res) => {
-  res.send('hello,node web of express')
-})
+app.post('/articles', (req, res) => {
+  res.send('OK');
+});
 
-app.listen(port,()=> {
-  console.log(`服务端口${port} 运行中`)
-  console.log(process)
-})
+app.get('/articles/:id', (req, res) => {
+  const id = req.params.id;
+  console.log('Fetching:', id);
+  console.log(articles[id])
+  res.send(articles[id]);
+});
+
+app.delete('/articles/:id', (req, res) => {
+  const id = req.params.id;
+  console.log('Deleting:', id);
+  delete articles[id];
+  res.send({ message: 'Deleted' });
+});
+
+app.listen(process.env.PORT || 3000);
+
+module.exports = app;
