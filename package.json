@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.1",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "htmlparser": "^1.7.7",
+    "request": "^2.60.0"
   }
 }
