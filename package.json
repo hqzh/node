@@ -25,5 +25,8 @@
     "express": "^4.16.3",
     "node-readability": "^3.0.0",
     "sqlite3": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1"
   }
 }
