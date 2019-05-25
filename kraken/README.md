@@ -1,4 +1,0 @@
-kraken
-===========
-
-my kraken
