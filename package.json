@@ -1,0 +1,24 @@
+{
+  "name": "webpack-actual",
+  "version": "1.0.0",
+  "description": "重学webpack",
+  "private": true,
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hqzh/node.git"
+  },
+  "keywords": [
+    "重学"
+  ],
+  "author": "hqzh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hqzh/node/issues"
+  },
+  "homepage": "https://github.com/hqzh/node#readme",
+  "devDependencies": {
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
+  }
+}
