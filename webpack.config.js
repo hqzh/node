@@ -6,7 +6,7 @@ module.exports = {
   entry:{
     main:'./src/index.js'
   },
-  // 打包一个模块，不知道怎么办的时候配置一个规则告诉它(js默认有配置)
+  // 打包一个模块，不知道怎么办的时候配置一个规则告诉它(js默认有配置)，可通过后缀-loader去npm找
   module:{
     rules:[
       {
