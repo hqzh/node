@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "重学webpack",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "bundle": "webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hqzh/node.git"
