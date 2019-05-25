@@ -12,7 +12,11 @@ module.exports = {
       {
         test:/\.jpg$/,
         use:{
-          loader:'file-loader'
+          loader:'file-loader',
+          options:{  //额外参数,placeholder占位符
+            name:'[name]_[hash].[ext]', //打包后的名字是原名+hash+后缀
+            outputPath:'images/',  // 打包到指定的文件夹
+          }
         }
       }
     ]
