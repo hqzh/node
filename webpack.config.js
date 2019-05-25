@@ -24,7 +24,9 @@ module.exports = {
         use:{
           loader:'url-loader',
           options:{  //额外参数,placeholder占位符
-
+            name:'[name]_[hash].[ext]', //打包后的名字是原名+hash+后缀
+            outputPath:'images/',  // 打包到指定的文件夹
+            limit:2048, // 超过这个大小则打包成文件而不是base64
           }
         }
       }
