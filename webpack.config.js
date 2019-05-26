@@ -70,6 +70,7 @@ module.exports = {
   ],
   output: {
     // publicPath:'www.cdn.com.cn/', //设置引入js前加一些前缀，比如cdn
+   publicPath:'/', 
     filename: '[name].js',  // 设置占位符，上面入口的属性是什么就会打包成什么名字
     path: path.resolve(__dirname, 'dist')
   },
