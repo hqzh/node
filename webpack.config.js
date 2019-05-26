@@ -53,10 +53,10 @@ module.exports = {
         template:'src/index.html'
       }
     ),  // 会在打包结束后的时刻以自己定义的模板自动生成一个html文件，并把打包生成的js自动引入到HTML文件中
-    new CleanWebpackPlugin(),//删除上一次打包的内容
+    new CleanWebpackPlugin(),//删除上一次打包的内容,打包之前时刻执行
   ],
   output: {
-    filename: 'dist.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   performance: {  //暴力忽略文件大的警告
