@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const  CleanWebpackPlugin  = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'production', // 配置环境，消除警告
-  // mode:'development', // 配置环境，消除警告
+  // mode: 'production', // 配置环境，消除警告
+  mode:'development', // 配置环境，消除警告
   entry: {
     main: './src/index.js', //如果下面输出不写死名字就会打包成main.js
     sub: './src/index.js', //如果下面输出不写死名字就会打包成main.js
@@ -62,8 +62,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   performance: {  //暴力忽略文件大的警告
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000
+    // hints: false,
+    // maxEntrypointSize: 512000,
+    // maxAssetSize: 512000
 }
 }
