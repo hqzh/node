@@ -1,13 +1,22 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const  CleanWebpackPlugin  = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   // mode: 'production', // 配置环境，消除警告
-  mode:'development', // 配置环境，消除警告
-  devtool:'source-map',  //配置控制台报错源码详细信息比如行数，而不是打包后的行数报错，是通过在打包后的目录出现一个.map来映射的
+  mode: 'development', // 配置环境，消除警告
+  devtool: 'source-map',  //配置控制台报错源码详细信息比如行数，而不是打包后的行数报错，是通过在打包后的目录出现一个.map来映射的
   // devtool:'cheap-module-eval-source-map',   开发
   // devtool:'cheap-module-source-map',  生产
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9009,
+    // 请求到 /api/xxx 现在会被代理到请求 http://localhost:3000/api/xxx, 例如 /api/user 现在会被代理到请求 http://localhost:3000/api/user
+    proxy: {
+      '/api': 'http://localhost:3000'
+    },
+  },
   entry: {
     main: './src/index.js', //如果下面输出不写死名字就会打包成main.js
     print: './src/print.js', //如果下面输出不写死名字就会打包成main.js
@@ -16,9 +25,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test:/\.(eot|ttf|svg)$/,  //本地字体文件打包
-        use:{
-          loader:'file-loader',
+        test: /\.(eot|ttf|svg)$/,  //本地字体文件打包
+        use: {
+          loader: 'file-loader',
         }
       },
       {
@@ -54,7 +63,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin(
       {
-        template:'src/index.html'
+        template: 'src/index.html'
       }
     ),  // 会在打包结束后的时刻以自己定义的模板自动生成一个html文件，并把打包生成的js自动引入到HTML文件中
     new CleanWebpackPlugin(),//删除上一次打包的内容,打包之前时刻执行
@@ -68,5 +77,5 @@ module.exports = {
     // hints: false,
     // maxEntrypointSize: 512000,
     // maxAssetSize: 512000
-}
+  }
 }
