@@ -29,6 +29,19 @@ module.exports = {
             limit:2048, // 超过这个大小则打包成文件而不是base64
           }
         }
+      },
+      {
+        test:/\.scss$/,
+        // 从下到上，从右到左执行顺序,css-loader处理css文件之间的关系，比如一个css引入另一个css,style-lpader在得到css-loader处理的内容后挂载到head标签,
+        use:['style-loader','css-loader','sass-loader','postcss-loader'],  
+      },
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+          }
+        }
       }
     ]
   },
