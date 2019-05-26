@@ -45,12 +45,13 @@ module.exports = {
       }
     ]
   },
+  // puugin 可以在webpack运行到某个时刻的时候做一些事情，类似生命周期函数
   plugins: [
     new HtmlWebpackPlugin(
       {
         template:'src/index.html'
       }
-    ),  // 会在打包结束后自动生成一个html文件，并把打包生成的js自动引入到HTML文件中
+    ),  // 会在打包结束后的时刻以自己定义的模板自动生成一个html文件，并把打包生成的js自动引入到HTML文件中
   ],
   output: {
     filename: 'bundle.js',
