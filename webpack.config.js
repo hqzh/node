@@ -58,5 +58,10 @@ module.exports = {
   output: {
     filename: 'dist.js',
     path: path.resolve(__dirname, 'dist')
-  }
+  },
+  performance: {  //暴力忽略文件大的警告
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+}
 }
