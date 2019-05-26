@@ -6,6 +6,8 @@ module.exports = {
   // mode: 'production', // 配置环境，消除警告
   mode:'development', // 配置环境，消除警告
   devtool:'source-map',  //配置控制台报错源码详细信息比如行数，而不是打包后的行数报错，是通过在打包后的目录出现一个.map来映射的
+  // devtool:'cheap-module-eval-source-map',   开发
+  // devtool:'cheap-module-source-map',  生产
   entry: {
     main: './src/index.js', //如果下面输出不写死名字就会打包成main.js
     print: './src/print.js', //如果下面输出不写死名字就会打包成main.js
