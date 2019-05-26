@@ -33,7 +33,17 @@ module.exports = {
       {
         test:/\.scss$/,
         // 从下到上，从右到左执行顺序,css-loader处理css文件之间的关系，比如一个css引入另一个css,style-lpader在得到css-loader处理的内容后挂载到head标签,
-        use:['style-loader','css-loader','sass-loader','postcss-loader'],  
+        use:[
+          'style-loader',
+          {
+            loader:'css-loader',
+            options:{
+              importLoaders:2, // 在scss或js文件中引入的scss也要走下面的两个，如果不配置，webpack读到引入会往上走
+            }
+          },
+          'sass-loader',
+          'postcss-loader'
+        ],  
       },
       {
         test: /\.(html)$/,
