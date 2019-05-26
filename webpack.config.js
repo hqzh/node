@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production', // 配置环境，消除警告
@@ -41,17 +42,16 @@ module.exports = {
           'sass-loader',
           'postcss-loader'
         ],
-      },
-      {
-        test: /\.(html)$/,
-        use: {
-          loader: 'html-loader',
-          options: {
-          }
-        }
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin(
+      {
+        template:'src/index.html'
+      }
+    ),  // 会在打包结束后自动生成一个html文件，并把打包生成的js自动引入到HTML文件中
+  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
