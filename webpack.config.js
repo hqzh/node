@@ -6,7 +6,8 @@ module.exports = {
   mode: 'production', // 配置环境，消除警告
   // mode:'development', // 配置环境，消除警告
   entry: {
-    main: './src/index.js'
+    main: './src/index.js', //如果下面输出不写死名字就会打包成main.js
+    sub: './src/index.js', //如果下面输出不写死名字就会打包成main.js
   },
   // 打包一个模块，不知道怎么办的时候配置一个规则告诉它(js默认有配置)，可通过后缀-loader去npm找
   module: {
@@ -56,7 +57,7 @@ module.exports = {
     new CleanWebpackPlugin(),//删除上一次打包的内容,打包之前时刻执行
   ],
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',  // 设置占位符，上面入口的属性是什么就会打包成什么名字
     path: path.resolve(__dirname, 'dist')
   },
   performance: {  //暴力忽略文件大的警告
