@@ -7,4 +7,5 @@ img.classList.add(styles.fish);
 
 const root = document.getElementById('root');
 console.log(root)
+console.log(33435)
 root.append(img)

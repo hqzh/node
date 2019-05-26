@@ -742,6 +742,7 @@ img.classList.add(_index_scss__WEBPACK_IMPORTED_MODULE_1___default.a.fish);
 
 const root = document.getElementById('root');
 console.log(root)
+console.log(33435)
 root.append(img)
 
 /***/ }),
