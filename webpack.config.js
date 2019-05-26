@@ -57,6 +57,7 @@ module.exports = {
     new CleanWebpackPlugin(),//删除上一次打包的内容,打包之前时刻执行
   ],
   output: {
+    publicPath:'www.cdn.com.cn/', //设置引入js前加一些前缀，比如cdn
     filename: '[name].js',  // 设置占位符，上面入口的属性是什么就会打包成什么名字
     path: path.resolve(__dirname, 'dist')
   },
