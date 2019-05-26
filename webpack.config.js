@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const  CleanWebpackPlugin  = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'production', // 配置环境，消除警告
@@ -52,9 +53,10 @@ module.exports = {
         template:'src/index.html'
       }
     ),  // 会在打包结束后的时刻以自己定义的模板自动生成一个html文件，并把打包生成的js自动引入到HTML文件中
+    new CleanWebpackPlugin(),//删除上一次打包的内容
   ],
   output: {
-    filename: 'bundle.js',
+    filename: 'dist.js',
     path: path.resolve(__dirname, 'dist')
   }
 }
