@@ -10,15 +10,17 @@ module.exports = {
   // devtool:'cheap-module-eval-source-map',   开发
   // devtool:'cheap-module-source-map',  生产
   devServer: { //会默认在内存中打包加快速度
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'dist'),  //静态文件根目录
     compress: true,
     port: 9009,
+    // 热更新css,html,即不刷新js.
     hot:true,
     hotOnly:true,
     // 请求到 /api/xxx 现在会被代理到请求 http://localhost:3000/api/xxx, 例如 /api/user 现在会被代理到请求 http://localhost:3000/api/user
     proxy: {
       '/api': 'http://localhost:3000'
     },
+    compress:true,//服务器返回浏览器的时候是否启动gzip压缩
   },
   entry: {
     main: './src/index.js', //如果下面输出不写死名字就会打包成main.js
@@ -62,7 +64,7 @@ module.exports = {
       }
     ]
   },
-  // puugin 可以在webpack运行到某个时刻的时候做一些事情，类似生命周期函数
+  // puugin 可以在webpack运行到某个时刻的时候做一些事情，类似生命周期函数，带s加的都是数组
   plugins: [
     new HtmlWebpackPlugin(
       {
@@ -70,10 +72,11 @@ module.exports = {
       }
     ),  // 会在打包结束后的时刻以自己定义的模板自动生成一个html文件，并把打包生成的js自动引入到HTML文件中
     new CleanWebpackPlugin(),//删除上一次打包的内容,打包之前时刻执行
+    // 热更新css,html,即不刷新js.
     new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
-    // publicPath:'www.cdn.com.cn/', //设置引入js前加一些前缀，比如cdn
+    // publicPath:'www.cdn.com.cn/', //设置引入js前加一些前缀，比如可以以是cdn
    publicPath:'/', 
     filename: '[name].js',  // 设置占位符，上面入口的属性是什么就会打包成什么名字
     path: path.resolve(__dirname, 'dist')
