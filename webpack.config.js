@@ -14,13 +14,13 @@ module.exports = {
     compress: true,
     port: 9009,
     // 热更新css,html,即不刷新js.
-    hot:true,
-    hotOnly:true,
+    hot: true,
+    hotOnly: true,
     // 请求到 /api/xxx 现在会被代理到请求 http://localhost:3000/api/xxx, 例如 /api/user 现在会被代理到请求 http://localhost:3000/api/user
     proxy: {
       '/api': 'http://localhost:3000'
     },
-    compress:true,//服务器返回浏览器的时候是否启动gzip压缩
+    compress: true,//服务器返回浏览器的时候是否启动gzip压缩
   },
   entry: {
     main: './src/index.js', //如果下面输出不写死名字就会打包成main.js
@@ -48,9 +48,14 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        // 从下到上，从右到左执行顺序,css-loader处理css文件之间的关系，比如一个css引入另一个css,style-lpader在得到css-loader处理的内容后挂载到head标签,
+        // 从下到上，从右到左执行顺序,css-loader处理css文件之间的关系，比如一个css引入另一个css,url的路径，style-loader在得到css-loader处理的内容后挂载到head标签,
         use: [
-          'style-loader',
+          {
+            loader: 'style-loader',
+            options: {
+              singleton: true,  // 处理为单个style标签
+            }
+          },
           {
             loader: 'css-loader',
             options: {
@@ -61,8 +66,10 @@ module.exports = {
           'sass-loader',
           'postcss-loader'
         ],
+        include:path.resolve(__dirname,'src'),  // 限制范围，提高打包速度
+        exclude:/node_modules/
       }
-    ]
+    ],
   },
   // puugin 可以在webpack运行到某个时刻的时候做一些事情，类似生命周期函数，带s加的都是数组
   plugins: [
@@ -77,7 +84,7 @@ module.exports = {
   ],
   output: {
     // publicPath:'www.cdn.com.cn/', //设置引入js前加一些前缀，比如可以以是cdn
-   publicPath:'/', 
+    publicPath: '/',
     filename: '[name].js',  // 设置占位符，上面入口的属性是什么就会打包成什么名字
     path: path.resolve(__dirname, 'dist')
   },
