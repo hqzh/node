@@ -1,5 +1,6 @@
 {
   "name": "webpack-actual",
+  "sideEffects":false,
   "version": "1.0.0",
   "description": "重学webpack",
   "private": true,

@@ -87,6 +87,9 @@ module.exports = {
     // 热更新css,html,即不刷新js.
     new webpack.HotModuleReplacementPlugin(),
   ],
+  optimization:{
+    usedExports:true,
+  },
   output: {
     // publicPath:'www.cdn.com.cn/', //设置引入js前加一些前缀，比如可以以是cdn
     publicPath: '/',
