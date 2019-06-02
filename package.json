@@ -7,7 +7,7 @@
     "bundle": "webpack",
     "watch": "webpack --watch",
     "dev-server": "webpack-dev-server",
-    "server":"node server.js"
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,11 @@
   },
   "homepage": "https://github.com/hqzh/node#readme",
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
     "autoprefixer": "^9.5.1",
+    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^2.0.2",
     "css-loader": "^2.1.1",
     "express": "^4.17.1",
@@ -38,5 +42,13 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-middleware": "^3.7.0",
     "webpack-dev-server": "^3.4.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@babel/runtime": "^7.4.5",
+    "@babel/runtime-corejs2": "^7.4.5",
+    "core-js": "^2.6.9",
+    "install": "^0.12.2",
+    "npm": "^6.9.0"
   }
 }

@@ -29,6 +29,11 @@ module.exports = {
   // 打包一个模块，不知道怎么办的时候配置一个规则告诉它(js默认有配置)，可通过后缀-loader去npm找
   module: {
     rules: [
+      { 
+        test: /\.js$/, 
+        exclude: /node_modules/, 
+        loader: "babel-loader" ,
+      },
       {
         test: /\.(eot|ttf|svg)$/,  //本地字体文件打包
         use: {
