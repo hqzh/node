@@ -29,7 +29,7 @@
     "kraken-js": "^2.2.0",
     "node-readability": "^3.0.0",
     "pg": "^7.7.1",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "sqlite3": "^4.0.2"
   },
   "devDependencies": {
